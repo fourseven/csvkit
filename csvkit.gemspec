@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["matt@route66.sytes.net"]
   gem.description   = %q{Rack middleware to convert a <table> into a csv}
   gem.summary       = %q{Inspired by PDFKit, allows a html page (with a <table>) to be converted to a csv file.}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/fourseven/csvkit"
 
   gem.add_dependency "nokogiri"
 
