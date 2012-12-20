@@ -19,7 +19,7 @@ class CSVKit
 
     doc.xpath('//table//tr').each do |row|
       row.xpath('td').each do |cell|
-        result += '"' + cell.text.gsub("\n", ' ').gsub('"', '\"').gsub(/(\s){2,}/m, '\1').gsub(/\,\$/, '') + "\", "
+        result += '"' + cell.text.gsub("\n", ' ').gsub('"', '\"').gsub(/(\s){2,}/m, '\1').gsub(/[\,\$]/, '') + "\", "
       end
       result += "\n"
     end
