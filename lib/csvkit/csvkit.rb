@@ -1,6 +1,5 @@
 class CSVKit
   require 'nokogiri'
-  require 'iconv'
 
   attr_accessor :content
 
