@@ -21,7 +21,13 @@ class CSVKit
         row.xpath('td | th').each do |cell|
           repeat = header_with_colspan?(cell) ? cell['colspan'].to_i : 1
           repeat.times do
-            tsv_row << clean_cell_string(cell.text)
+            # if a link show href instead of text.
+            if a_link = cell.search('a').first
+              text = a_link['href']
+            else
+              text = cell.text
+            end
+            tsv_row << clean_cell_string(text)
           end
         end
         tsv << tsv_row
