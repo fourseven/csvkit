@@ -31,9 +31,8 @@ class CSVKit
 
     raise "command failed" if tsv_str.to_s.strip.empty?
 
-    write_content = Iconv.conv("utf-16le", "utf-8", "\xEF\xBB\xBF")
-    write_content += Iconv.conv("utf-16le", "utf-8", tsv_str)
-    write_content
+    write_content = "\xEF\xBB\xBF".encode!(Encoding::UTF_16LE, Encoding::UTF_8, invalid: :replace, undef: :replace, replace: '')
+    write_content += tsv_str.encode!(Encoding::UTF_16LE, Encoding::UTF_8, invalid: :replace, undef: :replace, replace: '')
     return write_content
   end
 
